@@ -20,12 +20,15 @@ class SetTextTemplate extends React.Component {
                 <form /*onSubmit={() => props.setTextSuccess()}*/>
                     <label>
                         Name:
-                        <input type="text" value={props.setTextReducer.data.enteredText} onChange={() => props.setTextSuccess(event.target.value)}/>
+                        <input type="text" value={props.setTextReducer.enteredText}
+                               onChange={(event) => props.setTextSuccess(event.target.value) }/>
                     </label>
-                    <input type="submit" value="Submit"/>
+                    {/*<input type="submit" value="Submit"/>*/}
+                    {/*TODO: set up method to handle submit, ie. pass props.setTextSuccess() [NO NEED NOW] */}
                 </form>
                 <div>
-                    { props.setTextReducer.data.enteredText }
+                    Entered text:
+                    { props.setTextReducer.enteredText }
                 </div>
             </div>
         );
@@ -35,8 +38,9 @@ class SetTextTemplate extends React.Component {
 
 function mapStateToProps(state) {
     console.log('state ++++ ', state);
-    // TODO: object setTextReducer and appData comes -> use only appData ??
-    // TODO: in html: fix for onSubmit()
+    // TODO: object setTextReducer and appData comes -> nope, it's fine to have reducers for each component
+    // TODO: refactor NAMINGS reducers + folders
+    // TODO: styling -> connect to backend
     return {
         setTextReducer: state.setTextReducer
     }
@@ -45,7 +49,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         fetchSetText: () => dispatch(fetchSetText()),
-        setTextSuccess: () => dispatch(setTextSuccess())
+        setTextSuccess: (data) => dispatch(setTextSuccess(data))
     }
 }
 

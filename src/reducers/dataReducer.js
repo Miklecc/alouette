@@ -7,6 +7,10 @@ export const initialState = {
     error: false
 }
 
+export const initialStateText = {
+    enteredText: ''
+}
+
 export default function dataReducer (state = initialState, action) {
     switch (action.type) {
         case FETCHING_DATA:

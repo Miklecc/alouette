@@ -1,7 +1,7 @@
 import { SET_TEXT_GETTING, SET_TEXT_SUCCESS } from '../constants'
-import { initialState } from './dataReducer'
+import { initialStateText } from './dataReducer'
 
-export default function setTextReducer (state = initialState, action) {
+export default function setTextReducer (state = initialStateText, action) {
     switch (action.type) {
         case SET_TEXT_GETTING:
             return {
@@ -11,7 +11,7 @@ export default function setTextReducer (state = initialState, action) {
         case SET_TEXT_SUCCESS:
             return {
                 ...state,
-                enteredText: action.enteredText
+                enteredText: action.data
             }
         default:
             return state

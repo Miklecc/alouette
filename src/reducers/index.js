@@ -3,7 +3,7 @@ import appData from './dataReducer'
 import setTextReducer from './setTextReducer'
 
 const rootReducer = combineReducers({
-    appData,
+    // appData,
     setTextReducer
 })
 
