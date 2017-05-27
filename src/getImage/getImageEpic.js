@@ -1,6 +1,6 @@
-import {FETCHING_DATA} from './constants'
-import {getDataSuccess, getDataFailure} from './actions'
-import getPeople from './api'
+import {FETCHING_DATA} from '../reducers/constants'
+import {getDataSuccess, getDataFailure} from '../getImage/getImageActions'
+import getPeople from './getImageService'
 
 import 'rxjs'
 // import {Observable} from 'rxjs/Observable'

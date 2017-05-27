@@ -1,9 +1,9 @@
-import { combineReducers } from 'redux'
-import appData from './dataReducer'
+import {combineReducers} from 'redux'
+import getImageReducer from './getImageReducer'
 import setTextReducer from './setTextReducer'
 
 const rootReducer = combineReducers({
-    // appData,
+    getImageReducer,
     setTextReducer
 })
 

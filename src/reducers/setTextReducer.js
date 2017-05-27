@@ -1,7 +1,7 @@
-import { SET_TEXT_GETTING, SET_TEXT_SUCCESS } from '../constants'
-import { initialStateText } from './dataReducer'
+import {SET_TEXT_GETTING, SET_TEXT_SUCCESS} from './constants'
+import {initialStateText} from './getImageReducer'
 
-export default function setTextReducer (state = initialStateText, action) {
+export default function setTextReducer(state = initialStateText, action) {
     switch (action.type) {
         case SET_TEXT_GETTING:
             return {

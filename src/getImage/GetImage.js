@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { fetchData, getInput } from './actions'
+import {connect} from 'react-redux'
+import {fetchData, getInput} from '../getImage/getImageActions'
 
 let styles = ({
     container: {
@@ -19,7 +19,7 @@ let styles = ({
     buttonText: {
         color: 'white'
     },
-    mainContent : {
+    mainContent: {
         margin: 10
     }
 });
@@ -43,12 +43,12 @@ const getImageTemplate = (props) => {
             </button>
             <div style={mainContent}>
                 {
-                    props.appData.isFetching && <p>Loading</p>
+                    props.getImageReducer.isFetching && <p>Loading</p>
                 }
                 {
-                    props.appData.data.length ? (
-                            props.appData.data.map((person, i) => {
-                                return <div key={i} >
+                    props.getImageReducer.data.length ? (
+                            props.getImageReducer.data.map((person, i) => {
+                                return <div key={i}>
                                     <p>What: {person.body}</p>
                                     <p>Inside: {person.title}</p>
                                 </div>
@@ -60,14 +60,14 @@ const getImageTemplate = (props) => {
     )
 };
 
-function mapStateToProps (state) {
-    // console.log('1 state +++++ ', state);
+function mapStateToProps(state) {
+    console.log('1 state +++++ ', state);
     return {
-        appData: state.appData
+        getImageReducer: state.getImageReducer
     }
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
     // console.log('2 dispatch +++++ ', (fetchData()));
     return {
         fetchData: () => dispatch(fetchData()),

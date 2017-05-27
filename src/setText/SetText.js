@@ -13,7 +13,7 @@ class SetTextTemplate extends React.Component {
      */
 
     render() {
-        let { props } = this;
+        let {props} = this;
         return (
             <div>
                 <p>Privet ot Alouette</p>
@@ -39,7 +39,7 @@ class SetTextTemplate extends React.Component {
 function mapStateToProps(state) {
     console.log('state ++++ ', state);
     // TODO: object setTextReducer and appData comes -> nope, it's fine to have reducers for each component
-    // TODO: refactor NAMINGS reducers + folders
+    // TODO: pass data from setText to getImage (-> observable to setText to parse/map/etc)
     // TODO: styling -> connect to backend
     return {
         setTextReducer: state.setTextReducer
