@@ -3,8 +3,8 @@ import {getDataSuccess, getDataFailure} from '../getImage/getImageActions'
 import getPeople from './getImageService'
 
 import 'rxjs'
-// import {Observable} from 'rxjs/Observable'
 
+// import {Observable} from 'rxjs/Observable'
 // get from Promise
 // const fetchUserEpic = action$ =>
 //     action$.ofType(FETCHING_DATA)
@@ -17,7 +17,7 @@ import 'rxjs'
 const fetchUserEpic = action$ =>
     action$.ofType(FETCHING_DATA)
         .mergeMap(action =>
-            getPeople()
+            getPeople(action.phrase)
                 .map(response => getDataSuccess(response.response))
                 .catch(error => getDataFailure(error))
         );

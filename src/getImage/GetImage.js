@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {fetchData, getInput} from '../getImage/getImageActions'
+import {fetchData} from '../getImage/getImageActions'
 
 let styles = ({
     container: {
@@ -34,11 +34,11 @@ const getImageTemplate = (props) => {
         mainContent
     } = styles;
 
-    console.log('3 props +++++ ', props);
+    // console.log('3 props +++++ ', props);
     return (
         <div style={container}>
             <p style={text}>Privet ot Alouette</p>
-            <button style={button} onClick={() => props.fetchData()}>
+            <button style={button} onClick={() => props.fetchData(props.setTextReducer.enteredText)}>
                 <p style={buttonText}>Run Buran</p>
             </button>
             <div style={mainContent}>
@@ -63,15 +63,15 @@ const getImageTemplate = (props) => {
 function mapStateToProps(state) {
     console.log('1 state +++++ ', state);
     return {
-        getImageReducer: state.getImageReducer
+        getImageReducer: state.getImageReducer,
+        setTextReducer: state.setTextReducer
     }
 }
 
 function mapDispatchToProps(dispatch) {
     // console.log('2 dispatch +++++ ', (fetchData()));
     return {
-        fetchData: () => dispatch(fetchData()),
-        getInput: () => dispatch(getInput())
+        fetchData: (phrase) => dispatch(fetchData(phrase))
     }
 }
 

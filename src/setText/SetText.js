@@ -37,9 +37,9 @@ class SetTextTemplate extends React.Component {
 
 
 function mapStateToProps(state) {
-    console.log('state ++++ ', state);
-    // TODO: object setTextReducer and appData comes -> nope, it's fine to have reducers for each component
-    // TODO: pass data from setText to getImage (-> observable to setText to parse/map/etc)
+    // console.log('state ++++ ', state);
+    // TODO: object setTextReducer and appData comes -> nope, it's fine to have reducers for each component and combineReducers 'joins' them
+    // TODO: -> SKIPPED observable to setText to parse/map/etc to show autocomplete in search
     // TODO: styling -> connect to backend
     return {
         setTextReducer: state.setTextReducer
@@ -48,7 +48,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchSetText: () => dispatch(fetchSetText()),
+        fetchSetText: () => dispatch(fetchSetText()), // TODO: autocomplete
         setTextSuccess: (data) => dispatch(setTextSuccess(data))
     }
 }

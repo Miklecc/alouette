@@ -1,15 +1,11 @@
 import {FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE} from './constants'
 
 export const initialState = {
-    enteredText: '',
+    phrase: '',
     data: [],
     dataFetched: false,
     isFetching: false,
     error: false
-}
-
-export const initialStateText = {
-    enteredText: ''
 }
 
 export default function getImageReducer(state = initialState, action) {
@@ -18,6 +14,7 @@ export default function getImageReducer(state = initialState, action) {
             return {
                 ...state,
                 data: [],
+                phrase: action.phrase,
                 isFetching: true
             }
         case FETCHING_DATA_SUCCESS:
