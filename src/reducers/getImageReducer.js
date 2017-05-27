@@ -1,12 +1,18 @@
-import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE } from '../constants'
-const initialState = {
+import {FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE} from './constants'
+
+export const initialState = {
+    enteredText: '',
     data: [],
     dataFetched: false,
     isFetching: false,
     error: false
 }
 
-export default function dataReducer (state = initialState, action) {
+export const initialStateText = {
+    enteredText: ''
+}
+
+export default function getImageReducer(state = initialState, action) {
     switch (action.type) {
         case FETCHING_DATA:
             return {
