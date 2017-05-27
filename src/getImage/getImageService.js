@@ -6,9 +6,12 @@ import {ajax} from 'rxjs/observable/dom/ajax';
 //     {name: 'Query-3', age: 'something'}
 // ];
 
-export default () => {
+export default (phrase = '1') => {
 
-    return ajax({url: 'https://jsonplaceholder.typicode.com/posts', method: 'GET'});
+    return ajax.get('https://jsonplaceholder.typicode.com/posts?userId=' + phrase);
+
+    // Use when REST API can get parameters
+    // return ajax.get('https://jsonplaceholder.typicode.com/posts?userId=1', {userId: 1});
 
     // Wrap in Promise
     // return new Promise((resolve, reject) => {
