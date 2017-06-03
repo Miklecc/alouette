@@ -38,8 +38,10 @@ class SetTextTemplate extends React.Component {
 
 function mapStateToProps(state) {
     // console.log('state ++++ ', state);
-    // TODO: object setTextReducer and appData comes -> nope, it's fine to have reducers for each component and combineReducers 'joins' them
+    // TODO: object setTextReducer and appData comes -> nope, it's fine to have reducers for each component and 'combineReducers' joins them
     // TODO: -> SKIPPED observable to setText to parse/map/etc to show autocomplete in search
+    // TODO: Update ejected webpack configs, etc and scripts with this: https://github.com/ant-design/create-react-app-antd/blob/master/config/env.js
+    // TODO: to make antd work
     // TODO: styling -> connect to backend
     return {
         setTextReducer: state.setTextReducer
