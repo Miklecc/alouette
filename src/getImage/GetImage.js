@@ -37,7 +37,6 @@ const getImageTemplate = (props) => {
     // console.log('3 props +++++ ', props);
     return (
         <div style={container}>
-            <p style={text}>Privet ot Alouette</p>
             <button style={button} onClick={() => props.fetchData(props.setTextReducer.enteredText)}>
                 <p style={buttonText}>Run Buran</p>
             </button>

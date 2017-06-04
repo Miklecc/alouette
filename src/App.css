@@ -1,3 +1,49 @@
+/* all components */
+
+.gutter-row {
+  margin-left: 0 !important;
+}
+
+.setText-form {
+    border: 1px solid #3a3636;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.setText-entered-text {
+  padding-left: 10px;
+  margin-top: 20px;
+}
+
+.setText-entered-text .ant-form-item-label {
+  padding-right: 20px;
+}
+
+.setText-entered-text-input {
+  background-color: grey;
+  color: red;
+  border: 0;
+}
+
+.setText-divider {
+  margin-bottom: 15px;
+  background-color: grey;
+}
+
+.setText-background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.setText-background-image-container {
+    margin-bottom: 15px;
+    width: 100%;
+    height: 200px;
+}
+
+/* TODO: remove after check */
+
 .App {
   text-align: center;
 }
