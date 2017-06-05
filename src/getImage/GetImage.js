@@ -28,7 +28,6 @@ const getImageTemplate = (props) => {
 
     const {
         container,
-        text,
         button,
         buttonText,
         mainContent
@@ -60,7 +59,7 @@ const getImageTemplate = (props) => {
 };
 
 function mapStateToProps(state) {
-    console.log('1 state +++++ ', state);
+    // console.log('1 state +++++ ', state);
     return {
         getImageReducer: state.getImageReducer,
         setTextReducer: state.setTextReducer
