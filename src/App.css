@@ -4,6 +4,10 @@
   margin-left: 0 !important;
 }
 
+.main-getImage-row {
+  margin-top: 15px;
+}
+
 .setText-form {
     border: 1px solid #3a3636;
     border-radius: 4px;
@@ -12,10 +16,6 @@
 
 .setText-entered-text {
   margin-top: 20px;
-}
-
-.setText-entered-text .ant-form-item-label {
-  padding-right: 20px;
 }
 
 .setText-entered-text-input {
@@ -39,6 +39,10 @@
     margin-bottom: 15px;
     width: 100%;
     height: 200px;
+}
+
+.getImage-iconAboveImage {
+  text-align: center;
 }
 
 /* TODO: remove after check */

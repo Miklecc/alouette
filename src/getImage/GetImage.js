@@ -1,25 +1,10 @@
 import React from 'react';
-import {connect} from 'react-redux'
-import {fetchData} from '../getImage/getImageActions'
+import { connect } from 'react-redux'
+import { fetchData } from '../getImage/getImageActions'
+import { Button, Row, Col, Icon, Progress } from 'antd'
 
 let styles = ({
-    container: {
-        marginTop: 20
-    },
-    text: {
-        textAlign: 'center'
-    },
-    button: {
-        height: 60,
-        margin: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#0b7eff'
-    },
-    buttonText: {
-        color: 'white'
-    },
-    mainContent: {
+    setMargin: {
         margin: 10
     }
 });
@@ -27,24 +12,36 @@ let styles = ({
 const getImageTemplate = (props) => {
 
     const {
-        container,
-        button,
-        buttonText,
-        mainContent
+        setMargin
     } = styles;
+
+    // see how to set up <Progress>: https://ant.design/components/progress/
 
     // console.log('3 props +++++ ', props);
     return (
-        <div style={container}>
-            <button style={button} onClick={() => props.fetchData(props.setTextReducer.enteredText)}>
-                <p style={buttonText}>Run Buran</p>
-            </button>
-            <div style={mainContent}>
-                {
-                    props.getImageReducer.isFetching && <p>Loading</p>
-                }
-                {
-                    props.getImageReducer.data.length ? (
+        <div>
+            <Row>
+                <Col span={10} offset={2}>
+                    <Button type="primary" icon="download" loading={false} onClick={() => props.fetchData(props.setTextReducer.enteredText)}>
+                        Run Buran!
+                    </Button>
+                </Col>
+                <Col span={10} offset={2}>
+                    <Progress percent={50} strokeWidth={5} status="exception" />
+                </Col>
+            </Row>
+            <Row className="getImage-iconAboveImage" style={setMargin}>
+                <Col>
+                    <Icon type="caret-down" />
+                </Col>
+            </Row>
+            <Row>
+                <div style={setMargin}>
+                    {
+                        props.getImageReducer.isFetching && <p>Loading</p>
+                    }
+                    {
+                        props.getImageReducer.data.length ? (
                             props.getImageReducer.data.map((person, i) => {
                                 return <div key={i}>
                                     <p>What: {person.body}</p>
@@ -52,8 +49,10 @@ const getImageTemplate = (props) => {
                                 </div>
                             })
                         ) : null
-                }
-            </div>
+                    }
+                </div>
+            </Row>
+
         </div>
     )
 };
