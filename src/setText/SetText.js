@@ -55,6 +55,7 @@ class SetTextTemplate extends React.Component {
                                         message: 'Please input text with rule [1-10]',
                                         pattern: /^([1-9]|10)$/g
                                     }],
+                                    initialValue: props.setTextReducer.enteredText
                                 })(
                                     <Input
                                         prefix={<Icon type="aliwangwang-o"
