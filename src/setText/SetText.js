@@ -1,13 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchSetText, setTextSuccess } from './setTextActions'
-import { Form, Icon, Input, Button } from 'antd'
+import { Form, Icon, Input } from 'antd'
 
 const FormItem = Form.Item;
-
-function hasErrors(fieldsError) {
-    return Object.keys(fieldsError).some(field => fieldsError[field]);
-}
 
 class SetTextTemplate extends React.Component {
     // constructor(props) {
@@ -23,8 +19,7 @@ class SetTextTemplate extends React.Component {
     render() {
 
         let { props } = this;
-        const { getFieldDecorator, getFieldsError,
-            getFieldError, isFieldTouched } = props.form;
+        const { getFieldDecorator, getFieldError, isFieldTouched } = props.form;
 
         // Only show error after a field is touched.
         const setTextFieldError = isFieldTouched('setTextField') && getFieldError('setTextField');
