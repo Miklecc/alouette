@@ -17,7 +17,7 @@ const getImageTemplate = (props) => {
 
     // see how to set up <Progress>: https://ant.design/components/progress/
 
-    // console.log('3 props +++++ ', props);
+    console.log('5 props +++++ ', props.getImageReducer);
     return (
         <div>
             <Row>
@@ -40,7 +40,7 @@ const getImageTemplate = (props) => {
                     {
                         props.getImageReducer.isFetching && <p>Loading</p>
                     }
-                    {
+                    {/*{
                         props.getImageReducer.data.length ? (
                             props.getImageReducer.data.map((person, i) => {
                                 return <div key={i}>
@@ -49,7 +49,7 @@ const getImageTemplate = (props) => {
                                 </div>
                             })
                         ) : null
-                    }
+                    }*/}
                 </div>
             </Row>
 

@@ -1,4 +1,4 @@
-import {FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE} from '../reducers/constants'
+import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE, FETCHING_DATA_PROGRESS } from '../reducers/constants'
 
 export function fetchData(phrase) {
     return {
@@ -18,5 +18,13 @@ export function getDataFailure(error) {
     return {
         type: FETCHING_DATA_FAILURE,
         errorMessage: error
+    }
+}
+
+
+export function getDataProgress(progress) {
+    return {
+        type: FETCHING_DATA_PROGRESS,
+        progress
     }
 }
