@@ -22,8 +22,8 @@ const getImageTemplate = (props) => {
         <div>
             <Row>
                 <Col span={10} offset={2}>
-                    <Button type="primary" icon="download" loading={false} onClick={() => props.fetchData(props.setTextReducer.enteredText)}>
-                        Run Buran!
+                    <Button type="primary" icon="download" loading={props.getImageReducer.isFetching} onClick={() => props.fetchData(props.setTextReducer.enteredText)}>
+                        {props.getImageReducer.isFetching ? "Loading" : "Run Buran!"}
                     </Button>
                 </Col>
                 <Col span={10} offset={2}>
