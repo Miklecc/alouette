@@ -1,35 +1,63 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {fetchSetText, setTextSuccess} from './setTextActions'
+import { connect } from 'react-redux'
+import { fetchSetText, setTextSuccess } from './setTextActions'
+import { Form, Icon, Input } from 'antd'
+
+const FormItem = Form.Item;
 
 class SetTextTemplate extends React.Component {
     // constructor(props) {
     //     super(props);
     // }
 
-    /*
-     componentDidMount() { }
-     componentWillUnmount() { }
-     */
+    componentDidMount() {
+        this.props.form.validateFields();
+    }
+    //  componentWillUnmount() { }
+    // TODO: img src: http://rammb.cira.colostate.edu/dev/hillger/Alouette-1_and_TAVE_cover5.jpg
 
     render() {
-        let {props} = this;
+
+        let { props } = this;
+        const { getFieldDecorator, getFieldError, isFieldTouched } = props.form;
+
+        // Only show error after a field is touched.
+        const setTextFieldError = isFieldTouched('setTextField') && getFieldError('setTextField');
+
         return (
             <div>
-                <p>Privet ot Alouette</p>
-                <form /*onSubmit={() => props.setTextSuccess()}*/>
-                    <label>
-                        Name:
-                        <input type="text" value={props.setTextReducer.enteredText}
-                               onChange={(event) => props.setTextSuccess(event.target.value) }/>
-                    </label>
-                    {/*<input type="submit" value="Submit"/>*/}
-                    {/*TODO: set up method to handle submit, ie. pass props.setTextSuccess() [NO NEED NOW] */}
-                </form>
-                <div>
-                    Entered text:
-                    { props.setTextReducer.enteredText }
-                </div>
+                <Form layout="inline" onSubmit={this.handleSubmit} className="setText-form">
+                    Privet ot Alouette
+                            <hr className="setText-divider" />
+
+                    <FormItem
+                        label='Enter phrase'
+                        colon={false}
+                        validateStatus={setTextFieldError ? 'error' : ''}
+                        help={setTextFieldError || ''}>
+                        {getFieldDecorator('setTextField', {
+                            rules: [{
+                                required: false,
+                                message: 'Please input text with rule [1-10]',
+                                pattern: /^([1-9]|10)$/g
+                            }],
+                            initialValue: props.setTextReducer.enteredText
+                        })(
+                            <Input
+                                prefix={<Icon type="aliwangwang-o"
+                                    style={{ fontSize: 13 }} />}
+                                placeholder="Text to process" />
+                            )}
+                    </FormItem>
+                    <FormItem
+                        className="setText-entered-text"
+                        label='Your phrase is'
+                        colon={false}>
+                        <Input
+                            value={props.setTextReducer.enteredText}
+                            className="setText-entered-text-input" />
+                    </FormItem>
+                </Form>
             </div>
         );
     }
@@ -40,9 +68,6 @@ function mapStateToProps(state) {
     // console.log('state ++++ ', state);
     // TODO: object setTextReducer and appData comes -> nope, it's fine to have reducers for each component and 'combineReducers' joins them
     // TODO: -> SKIPPED observable to setText to parse/map/etc to show autocomplete in search
-    // TODO: Update ejected webpack configs, etc and scripts with this: https://github.com/ant-design/create-react-app-antd/blob/master/config/env.js
-    // TODO: to make antd work
-    // TODO: styling -> connect to backend
     return {
         setTextReducer: state.setTextReducer
     }
@@ -55,9 +80,16 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
+const CreateFormFromTextTemplate = Form.create({
+    onFieldsChange(props, fields) {
+        // console.log('onFieldsChange FIELDS ==', fields);
+        props.setTextSuccess(fields.setTextField.value);
+    },
+})(SetTextTemplate);
+
 const SetText = connect(
     mapStateToProps,
     mapDispatchToProps
-)(SetTextTemplate)
+)(CreateFormFromTextTemplate)
 
 export default SetText
