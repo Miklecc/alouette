@@ -1,4 +1,4 @@
-import {ajax} from 'rxjs/observable/dom/ajax';
+import { ajax } from 'rxjs/observable/dom/ajax';
 
 // const people = [
 //     {name: 'Query-1', age: 'image'},
@@ -6,9 +6,22 @@ import {ajax} from 'rxjs/observable/dom/ajax';
 //     {name: 'Query-3', age: 'something'}
 // ];
 
-export default (phrase = '1') => {
+export default (phrase = 'Placeholder for SVG') => {
 
-    return ajax.get('https://jsonplaceholder.typicode.com/posts?userId=' + phrase);
+    // return ajax.get('https://jsonplaceholder.typicode.com/posts?userId=' + phrase);
+
+    const phraseObject = { "text": phrase };
+
+    return ajax({
+        url: 'http://localhost:8080/phrase',
+        body: phraseObject,
+        crossDomain: false,
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        responseType: 'text'
+    });
 
     // Use when REST API can get parameters
     // return ajax.get('https://jsonplaceholder.typicode.com/posts?userId=1', {userId: 1});

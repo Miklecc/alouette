@@ -14,6 +14,10 @@
     padding: 5px;
 }
 
+.setText-input-text {
+  min-width: 200px;
+}
+
 .setText-entered-text {
   margin-top: 20px;
 }
@@ -22,6 +26,7 @@
   background-color: grey;
   color: red;
   border: 0;
+  min-width: 200px;
 }
 
 .setText-divider {
@@ -44,6 +49,13 @@
 .getImage-iconAboveImage {
   text-align: center;
 }
+
+.getImage-iframe {
+  height: 400px;
+  width: 400px;
+}
+
+.hidden { display:none; }
 
 /* TODO: remove after check */
 
