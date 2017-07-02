@@ -38,12 +38,13 @@ class SetTextTemplate extends React.Component {
                         {getFieldDecorator('setTextField', {
                             rules: [{
                                 required: false,
-                                message: 'Please input text with rule [1-10]',
-                                pattern: /^([1-9]|10)$/g
+                                message: 'Please input text with rule [1-10]'
                             }],
                             initialValue: props.setTextReducer.enteredText
                         })(
                             <Input
+                                className="setText-input-text"
+                                type="textarea"
                                 prefix={<Icon type="aliwangwang-o"
                                     style={{ fontSize: 13 }} />}
                                 placeholder="Text to process" />
@@ -54,6 +55,7 @@ class SetTextTemplate extends React.Component {
                         label='Your phrase is'
                         colon={false}>
                         <Input
+                            type="textarea"
                             value={props.setTextReducer.enteredText}
                             className="setText-entered-text-input" />
                     </FormItem>

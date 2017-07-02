@@ -1,11 +1,12 @@
-import {FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE} from './constants'
+import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE, SHOULD_HIDE } from './constants'
 
 export const initialState = {
     phrase: '',
     data: [],
     dataFetched: false,
     isFetching: false,
-    error: false
+    error: false,
+    shouldHide: false
 }
 
 export default function getImageReducer(state = initialState, action) {
@@ -28,6 +29,11 @@ export default function getImageReducer(state = initialState, action) {
                 ...state,
                 isFetching: false,
                 error: true
+            }
+        case SHOULD_HIDE:
+            return {
+                ...state,
+                shouldHide: action.shouldHide
             }
         default:
             return state
