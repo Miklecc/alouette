@@ -2,7 +2,7 @@ import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE, SHOULD_HID
 
 export const initialState = {
     phrase: '',
-    data: [],
+    data: '',
     dataFetched: false,
     isFetching: false,
     error: false,
@@ -14,7 +14,7 @@ export default function getImageReducer(state = initialState, action) {
         case FETCHING_DATA:
             return {
                 ...state,
-                data: [],
+                data: '',
                 phrase: action.phrase,
                 isFetching: true
             }

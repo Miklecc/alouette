@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { fetchData, hideObject } from '../getImage/getImageActions'
 import { Button, Row, Col, Icon, Progress } from 'antd'
+import SVGInline from "react-svg-inline"
 
 let styles = ({
     setMargin: {
@@ -30,8 +31,8 @@ class getImageTemplate extends React.Component {
                             () => {
                                 props.fetchData(props.setTextReducer.enteredText);
                                 {/* It is attempt to show/hide <object> on src change */ }
-                                {/*props.hideObject(true);
-                                props.hideObject(false);*/}
+                                props.hideObject(true);
+                                props.hideObject(false);
                             }}>
                             {props.getImageReducer.isFetching ? "Loading" : "Run Buran!"}
                         </Button>
@@ -51,8 +52,9 @@ class getImageTemplate extends React.Component {
                             props.getImageReducer.isFetching && <p>Loading</p>
                         }
                         {/*A_coloured_voting_box*/}
-                        <iframe frameBorder="0" scrolling="no"
-                            className={props.getImageReducer.shouldHide ? 'hidden getImage-iframe' : 'getImage-iframe'} src={'https://upload.wikimedia.org/wikipedia/en/0/01/' + props.getImageReducer.data + '.svg'}></iframe>
+                        {/*<SVGInline svg={props.getImageReducer.data} />*/}
+                        <iframe frameBorder="0" scrolling="no" title='This is an IFRAME title'
+                            className={props.getImageReducer.shouldHide ? 'hidden getImage-iframe' : 'getImage-iframe'} src={'/python_svg_result.svg'}></iframe>
                         {/*<object className={props.getImageReducer.shouldHide ? 'hidden' : ''} type='image/svg+xml' data={'https://upload.wikimedia.org/wikipedia/en/0/01/' + props.getImageReducer.data + '.svg'}></object>*/}
                     </div>
                 </Row>
